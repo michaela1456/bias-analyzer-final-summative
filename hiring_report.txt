@@ -1,0 +1,10 @@
+Bachelor,2.70,Not Hired
+Bachelor,4.10,Not Hired
+Drew Moore,2.90,Not Hired
+Bachelor,3.70,Not Hired
+Taylor Smith,5.40,Not Hired
+PhD,0.95,Hired
+PhD,2.40,Not Hired
+Master,1.60,Hired
+Bachelor,0.65,Hired
+Casey Davis,3.90,Not Hired
