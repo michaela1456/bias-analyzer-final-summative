@@ -72,14 +72,7 @@ public class BiasAnalyzer {
        ArrayList<Applicant> left = new ArrayList<>(applicants.subList(0, mid));
        ArrayList<Applicant> right = new ArrayList<>(applicants.subList(mid, length));
        
-       //ASK
-       /*for (int i = 0; i<mid; i++){
-           left.set(i, applicants.get(i)); 
-       }
        
-       for (int i = mid; i<length; i++){
-           right.set(i-mid, applicants.get(i));
-       }*/
        //sort the left array
        mergeSort(left, mid);
        //sort the right array
