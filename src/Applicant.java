@@ -1,4 +1,4 @@
-//DO OVERRIDEN METHODS NEED A JAVA DOC COMMENT!!!
+
 public class Applicant {
     private String name;
     private int age;
