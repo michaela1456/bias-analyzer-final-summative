@@ -20,12 +20,8 @@ public class TechnicalApplicant extends Applicant{
    public TechnicalApplicant(String n, int a, String g, String r, String eL, int yOE, ArrayList<String> pL, ArrayList<String> c){
         super(n, a, g, r, eL, yOE);
         super.setPosition("Software Engineer");
-        for (String s: pL){
-            programmingLanguages.add(s);
-        }
-        for (String s: c){
-            certifications.add(s);
-        }
+        RecursiveAdder.copyList(pL, programmingLanguages, 0);
+        RecursiveAdder.copyList(c, certifications, 0);
     }
     /**
     Returns the number of certifications of a given TechnicalApplicant object.
