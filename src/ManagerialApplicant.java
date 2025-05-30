@@ -21,9 +21,7 @@ public class ManagerialApplicant extends Applicant{
         super(n, a, g, r, eL, yOE);
         super.setPosition("Manager");
         leadershipExperience = lE;
-        for (String s: mc){
-            managementCertifications.add(s);
-        }
+        RecursiveAdder.copyList(mc, managementCertifications, 0);
         
     }
     /**
