@@ -15,9 +15,7 @@ public class BiasAnalyzer {
     @param bT - the double indicating the desired biasThreshold for the BiasAnalyzer object
     */
    public BiasAnalyzer(ArrayList<String> a, double bT){
-       for (String s: a){
-           applicants.add(s);
-       }
+       RecursiveAdder.copyList(a, applicants, 0);
        biasThreshold = bT;
    }
    
@@ -46,10 +44,7 @@ public class BiasAnalyzer {
        Map <Applicant, Double> biasScores = new LinkedHashMap<>(); 
        
        //iterates through the applicants ArrayList and adds the Applicants object and bias score to the LinkedHashMap object
-       for (Applicant a: applicants){
-           double score = calculateBiasScore(a); 
-           biasScores.put(a, score);
-       }
+       addBiasScores(applicants, biasScores, 0);
        return biasScores;
    }
    
@@ -176,4 +171,23 @@ public class BiasAnalyzer {
        
        return score;
    }
+   /**
+    Takes an ArrayList containing Applicant objects and assigns all values to LinkedHashMap along with corresponding bias score
+    Pre-condition: source and destination are properly instantiated and source.size()>0
+    Post-condition: source and destination contain the same String objects, destination.size()== source.size()
+    @param ArrayList<String> source - an ArrayList containing Applicant objects that must be copied
+    @param Map<Applicant, Double> destination - an ArrayList containing Applicant and Double objects where the objects from source and their corresponding bias score will be copied to
+    @param int index - the index at which the method starts adding objects from source to the destination
+    */
+   public void addBiasScores (ArrayList<Applicant> source, Map<Applicant, Double> destiantion, int index){
+            if (index>=source.size()){
+                return; //base case, once index is greater than source ArrayList's size
+            }
+        
+            Applicant a = source.get(index); 
+            double score = calculateBiasScore(a); //determine bias score from applicant object
+            biasScores.put(a, score); //add to linked hashmap
+        
+            addBiasScores(applicants, biasScores, index+1);//call again but for next index
+    }
 }
